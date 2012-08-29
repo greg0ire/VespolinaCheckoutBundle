@@ -53,7 +53,7 @@ class CheckoutController extends ContainerAware
         }
 
         //If we get here then there was a serious error
-        throw new \Exception('Checkout failed - inernal error - could not find process step to execute');
+        throw new \Exception('Checkout failed - internal error - could not find process step to execute');
     }
 
     public function executeAction($processId, $processStepName) {
