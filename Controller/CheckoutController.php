@@ -67,7 +67,10 @@ class CheckoutController extends ContainerAware
         //Assert that the current process step (according to the process) is the same as the step name
         //passed on to the request
         if ($processStep->getName() != $processStepName) {
-           throw new \Exception('Checkout failed - internal error');
+           throw new \Exception(sprintf(
+               'Checkout failed - process step names differ : "%s" != "%s"',
+               $processStep->getName(),
+               $processStepName));
         }
 
         return $processStep->getProcess()->execute();
